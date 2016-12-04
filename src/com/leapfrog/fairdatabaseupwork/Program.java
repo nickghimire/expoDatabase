@@ -101,7 +101,18 @@ public class Program {
                         while (matcher7.find()) {
                             System.out.println("Organiser/s : " + matcher7.group(1));
                             System.out.println("Address : " + matcher7.group(2));
-                            System.out.println("Code :" + matcher7.group(3));
+                            String codes = matcher7.group(3);
+                            String[] tokens = codes.split(" ");
+                            for(int x=0 ; x < tokens.length ; x++){
+                                for(int j = 0; j <= 9 ; j++){
+                                    if(tokens[x].contains(Integer.toString(j))){
+                                        
+                                        System.out.println("Code : "+ tokens[x].replace(",", " "));
+                                        break;
+                                    }
+                                }
+                            }
+                            //System.out.println("Code :" + matcher7.group(3));
                             System.out.println("Phone : " + matcher7.group(4));
                             System.out.println("Fax : "+matcher7.group(5));
 
